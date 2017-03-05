@@ -45,14 +45,19 @@ class WheelViewController: UIViewController, WheelViewDelegate {
         self.wheelView.delegate = self;
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        self.wheelView.update(withGroup: Core.instance.currentGroup);
 
         NotificationCenter.default.addObserver(self,
                 selector: #selector(kidsGroupChanged),
                 name: NSNotification.Name.KidsGroupChanged, object: nil)
+
+        self.wheelView.update(withGroup: Core.instance.currentGroup);
     }
 
     func kidsGroupChanged() {
@@ -64,10 +69,8 @@ class WheelViewController: UIViewController, WheelViewDelegate {
         super.viewWillDisappear(animated)
     }
 
-
-    @IBAction func triggerTest(_ sender: Any) {
-        Core.instance.replaceCurrentKidGroupWithFakes()
-        self.wheelView.update(withGroup: Core.instance.currentGroup)
+    @IBAction func backToSelectionTapped(_ sender: Any) {
+        dismiss(animated: true)
     }
 
     @IBAction func manageButtonTapped(_ sender: Any) {

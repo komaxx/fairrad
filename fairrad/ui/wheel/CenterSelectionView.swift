@@ -7,13 +7,14 @@ import UIKit
 
 class CenterSelectionView : UIView {
     @IBOutlet weak var kidFaceView : UIImageView!
+    @IBOutlet weak var kidNameView : UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.clipsToBounds = true
 
-        self.backgroundColor = UIColor.gray
+        self.backgroundColor = UIColor.clear
         self.layer.borderColor = UIColor.darkGray.cgColor
         self.layer.borderWidth = 3
     }
@@ -32,6 +33,14 @@ class CenterSelectionView : UIView {
 
         self.backgroundColor = kid.color
         self.layer.borderColor = kid.color.cgColor
+
+        self.kidNameView.text = kid.name
+        if let picPath = kid.picPath {
+            self.kidFaceView.image = UIImage(named: picPath)
+        } else {
+            self.kidFaceView.image = nil
+        }
+
         self.transform = CGAffineTransform(scaleX: 1.04, y: 0.96)
 
         UIView.animate(withDuration: 0.1, animations: {

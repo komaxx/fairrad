@@ -12,6 +12,7 @@ import UIKit
 class KidPickedView : UIView {
     @IBOutlet weak var kidFaceView : UIImageView!
     @IBOutlet weak var kidNameView : UILabel!
+    @IBOutlet weak var kidCenterNameView : UILabel!
     
     var shownKidId : String = ""
 
@@ -53,7 +54,16 @@ class KidPickedView : UIView {
     func show(forKid kid : Kid){
         shownKidId = kid.id
         kidNameView.text = kid.name
+        kidCenterNameView.text = kid.name
         kidFaceView.layer.borderColor = kid.color.cgColor
+
+        if let picPath = kid.picPath {
+            kidFaceView.image = UIImage(named: picPath)
+        } else {
+            kidFaceView.backgroundColor = kid.color
+            kidFaceView.image = nil
+        }
+        kidCenterNameView.isHidden = kidFaceView.image != nil
 
         self.isHidden = false
         self.alpha = 0
@@ -69,9 +79,9 @@ class KidPickedView : UIView {
     }
 
     private func appearContent() {
-        self.kidFaceView.transform = CGAffineTransform(scaleX: 0.4, y: 0.1)
+        self.kidFaceView.transform = CGAffineTransform(scaleX: 0.7, y: 0.1)
 
-        UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.2, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.2, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
             self.kidFaceView.transform = CGAffineTransform.identity
             self.kidFaceView.alpha = 1
         }, completion: { finished in

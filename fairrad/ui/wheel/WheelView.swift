@@ -43,7 +43,6 @@ class WheelView : UIView , UIGestureRecognizerDelegate {
     var smallMode = false
 
 
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -212,6 +211,11 @@ class WheelView : UIView , UIGestureRecognizerDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        guard let groupId=kidsGroupId, let group = Core.instance.group(withId: groupId) else {
+            print("KidGroup with id \(kidsGroupId) not found")
+            return
+        }
+
         // there can be no transform while adding sub-views and accessing the frame
         let transform = self.transform
         self.transform = CGAffineTransform.identity
@@ -222,17 +226,19 @@ class WheelView : UIView , UIGestureRecognizerDelegate {
 
         self.layer.cornerRadius = width / 2
 
-        let group = Core.instance.currentGroup
         let overallWeight = Float(group.getOverallWeight())
 
         var startRadians:Float = 0
 
-        let sortedKeys = self.getSortedSectorViewKeys()
+        let sortedKeys = group.kids
         for kidId in sortedKeys {
             let kidWeight = Float(group.weightForKid(withId: kidId))
             let radianSpan = (kidWeight / overallWeight) * 2 * Float.pi
 
-            let sectorView = sectorViews[kidId]!
+            guard let sectorView = sectorViews[kidId] else {
+                print("no sector view yet for \(kidId)")
+                continue
+            }
 
             sectorView.transform = CGAffineTransform(rotationAngle:0)
             sectorView.updateRadianSpan(radius, radianSpan)
@@ -253,6 +259,7 @@ class WheelView : UIView , UIGestureRecognizerDelegate {
     }
 
     func update(withGroup group : KidsGroup) {
+        self.kidsGroupId = group.id
         var notFoundKidIds = Set<String>(sectorViews.keys)
 
         for kidId in group.kids {

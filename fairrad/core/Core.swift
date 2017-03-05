@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Core {
 
@@ -15,71 +16,134 @@ class Core {
     // singleton
     // //////////////////////////////////////////////////////////
 
-    private(set) var currentGroup : KidsGroup;
+    private(set) var currentGroup : KidsGroup
 
+    private(set) var kidsGroups = [KidsGroup]()
     private var kids = [String : Kid]()
+
+    private let groupsSorterByLastAccess : (KidsGroup, KidsGroup) -> Bool = { a, b in
+        if a.lastTimeCurrent == b.lastTimeCurrent{
+            // Special case: Same age. sort by id as fallback
+            // TODO
+        }
+        return a.lastTimeCurrent.timeIntervalSince(b.lastTimeCurrent) > 0
+    }
 
 
     private init(){
         currentGroup = KidsGroup(name:"initial group", style: .chances_stay_the_same)
 
-        createFakeData()
+        loadData()
+
+        if kids.count < 1 {
+            createInitialData()
+        }
     }
 
-    func replaceCurrentKidGroupWithFakes() {
-//        currentGroup = KidsGroup.createTestGroup()
+    private func loadData() {
+        // TODO
     }
 
     func kid(withId kidId: String) -> Kid? {
         return kids[kidId]
     }
 
-    // //////////////////////////////////////////////////////////
-    // dev / debug
-
-    func createFakeData(){
-        // create some fake kids
-        self.addFakeKid(name: "Adam A1")
-        self.addFakeKid(name: "Adam A 1")
-        self.addFakeKid(name: "Bertha B 2")
-        self.addFakeKid(name: "Christian Christiansonlangname 3")
-        self.addFakeKid(name: "Daniela Damaskus 4")
-        self.addFakeKid(name: "Elon Emission 5")
-        /*
-        self.addFakeKid(name: "Franziska Freitag 6")
-        self.addFakeKid(name: "Gustav Grain 7")
-        self.addFakeKid(name: "Hannelore Heimlich 8")
-        self.addFakeKid(name: "Irina Immelheim 9")
-        self.addFakeKid(name: "Josef Jämmerlich 10")
-        self.addFakeKid(name: "Karla Katastrophe 11")
-
-        self.addFakeKid(name: "A*dam A 12")
-        self.addFakeKid(name: "B*ertha B 13")
-        self.addFakeKid(name: "C*hristian Christianson 14")
-        self.addFakeKid(name: "D*aniela Damaskus 15")
-        self.addFakeKid(name: "E*lon Emission 16")
-        self.addFakeKid(name: "F*ranziska Freitag 17")
-        self.addFakeKid(name: "G*ustav Grain 18")
-        self.addFakeKid(name: "H*annelore Heimlich 19")
-        self.addFakeKid(name: "I*rina Immelheim 20")
-        self.addFakeKid(name: "J*osef Jämmerlich 21")
-        self.addFakeKid(name: "K*arla Katastrophe 22")
-        */
-
-        // put them in a fake group
-        let testGroup = KidsGroup(name: "Test group", style: .gone_until_everybody_had_its_turn)
-
-        var iterator = kids.keys.makeIterator()
-        for _ in 0..<(min(50, kids.count)) {
-            let kidId = iterator.next()!
-            testGroup.appendKid(kidId)
-        }
-
-        self.currentGroup = testGroup
+    func group(withId groupId: String) -> KidsGroup? {
+        return kidsGroups.first { group in group.id==groupId }
     }
 
-    private func addFakeKid(name: String) {
-        let nuKid = Kid(name: name, picPath:"picpath \(kids.count)")
+    func makeGroupCurrent(_ nuCurrent : KidsGroup){
+        guard currentGroup != nuCurrent else {
+            print("Already current.")
+            return
+        }
+
+        if !kidsGroups.contains(nuCurrent) {
+            print("Unknown group! Will be added to list of known kidsGroups.")
+            kidsGroups.append(nuCurrent)
+        }
+
+        self.currentGroup = nuCurrent
+        self.currentGroup.setCurrent()
+
+        // reactivate when notification implemented. Otherwise: View and Core go unsynced!
+        // self.kidsGroups = self.kidsGroups.sorted(by: groupsSorterByLastAccess)
+    }
+
+    /// Shortcut where name and picPath are the same
+    private func addKid(name: String) -> Kid {
+        return addKid(name: name, picPath: name)
+    }
+
+    private func addKid(name: String, picPath: String) -> Kid{
+        return addKid(id:(UUID().uuidString), name: name, picPath: picPath)
+    }
+
+    private func addKid(id: String, name: String, picPath: String?) -> Kid {
+        guard self.kid(withId: id) == nil else {
+            print("NOT adding kid with id \(id). Already exists!")
+            return self.kid(withId: id)!
+        }
+
+        let nuKid = Kid(id: id, name: name, picPath: picPath)
         kids[nuKid.id] = nuKid
+        return nuKid
+    }
+
+    // /////////////////////////////////////////////////////////////
+    // initial data
+
+    private func createInitialData() {
+        let sitCircleGroup = KidsGroup(name: "Sitzkreis", style: .slowly_recover_chance)
+        sitCircleGroup.appendKid(self.addKid(name: "Emily").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Erik").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Gregor").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Julia").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Lara").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Linus").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Lisa").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Luke").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Manvi").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Mia").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Miguel").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Niklas").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Nikolaus").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Noa").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Paula").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Philip B.", picPath: "PhilipB.").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Philip R.", picPath: "PhilipR.").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Quentin").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Quirin").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Sophia").id)
+        sitCircleGroup.appendKid(self.addKid(name: "Vincent").id)
+        self.kidsGroups.append(sitCircleGroup)
+
+        // make the kids rainbow colored for the beginning
+        let hueDelta : CGFloat = 1.0 / CGFloat(sitCircleGroup.kids.count)
+        var hue : CGFloat = 0
+        for kidId in sitCircleGroup.kids {
+            self.kids[kidId]!.color = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
+            hue += hueDelta
+        }
+
+
+        let yesOrNoGroup = KidsGroup(name: "Ja oder nein", style: .chances_stay_the_same)
+        let yes1 = addKid(id: "yes_green_1", name: "JA", picPath: nil)
+        yes1.color = UIColor.green
+        yesOrNoGroup.appendKid(yes1.id)
+
+        let no1 = addKid(id: "no_red_1", name: "NEIN", picPath: nil)
+        no1.color = UIColor.red
+        yesOrNoGroup.appendKid(no1.id)
+
+        let yes2 = addKid(id: "yes_green_2", name: "JA", picPath: nil)
+        yes2.color = UIColor.green
+        yesOrNoGroup.appendKid(yes2.id)
+
+        let no2 = addKid(id: "no_red_2", name: "NEIN", picPath: nil)
+        no2.color = UIColor.red
+        yesOrNoGroup.appendKid(no2.id)
+
+        self.kidsGroups.append(yesOrNoGroup)
     }
 }

@@ -134,12 +134,13 @@ class SectorView : UIView {
     func updateTargetRadians(_ targetRadians: Float){
         updateTransform(animationSpeed: -1)
         self.targetRadians = targetRadians;
-        updateTransform(animationSpeed: 0.25)
+        updateTransform(animationSpeed: 0.55)
     }
 
     func showKid(_ kid: Kid) {
         self.kidID = kid.id
         self.kidNameLabel.text = kid.name
+        self.highlightLayer.strokeColor = kid.color.lightened().cgColor
         self.backgroundLayer.fillColor = kid.color.cgColor
 
         self.setNeedsLayout()

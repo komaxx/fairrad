@@ -19,7 +19,9 @@ extension Notification.Name {
 ///
 /// A group of kids. Like a class. But without being a protected keyword.
 ///
-class KidsGroup {
+class KidsGroup : Equatable {
+    private(set) var id : String
+
     private(set) var name : String
     private(set) var style : KidsGroupStyle
     private(set) var kids : [String] = [String]()
@@ -29,10 +31,16 @@ class KidsGroup {
     /// computed from history
     private(set) var kidWeights : [String:Int] = [String:Int]()
 
+    private(set) var lastTimeCurrent : Date
+
 
     init(name: String, style:KidsGroupStyle){
+        self.id = UUID().uuidString
+
         self.name = name
         self.style = style
+
+        self.lastTimeCurrent = Date.distantPast
     }
 
     ///
@@ -52,7 +60,7 @@ class KidsGroup {
     /// Sums up the weight of all kids in the group
     ///
     func getOverallWeight() -> Int {
-        return kids.reduce(0, { $0 + weightForKid(withId: $1) })
+        return max(1, kids.reduce(0, { $0 + weightForKid(withId: $1) }) )
     }
 
     func appendKid(_ id: String) {
@@ -112,8 +120,8 @@ class KidsGroup {
     }
 
     ///
-    /// Delivers the latest history event for the given kidId in this group
-    /// - if present
+    /// Delivers the latest history event for the given kidId in this
+    /// group - if present
     ///
     func getLatestHistoryEventForKid(kidId: String) -> HistoryEvent? {
         return history.reversed().first { e in kidId == e.chosenKid  }
@@ -121,5 +129,16 @@ class KidsGroup {
 
     private func notify() {
         NotificationCenter.default.post(name: NSNotification.Name.KidsGroupChanged, object: nil)
+    }
+
+    func setCurrent() {
+        self.lastTimeCurrent = Date()
+    }
+
+    ///
+    /// Equatable
+    ///
+    static func ==(lhs: KidsGroup, rhs: KidsGroup) -> Bool {
+        return lhs.id==rhs.id
     }
 }

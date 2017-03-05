@@ -7,21 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031D2469D5BBEB4DBE5B2F2D /* Pods_fairrad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */; };
+		B645901461969D742AEE1C48 /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645967AB928A8D2AF0E6E2B /* SectorView.swift */; };
+		B6459182715E881A3F434A3F /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64596E8D66205D4058F24DE /* WheelViewController.swift */; };
+		B645927652F367D17CFEE2FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B645967BCB6E365881EA8459 /* Main.storyboard */; };
+		B645928331629A1B124C4160 /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645973FEF6A06DAC35C20C4 /* Kid.swift */; };
+		B645936AAAF120B0474F130B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459D2A6854493277793918 /* Util.swift */; };
+		B64594321644D8D2C1123115 /* CenterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459E762D6D7307978C722E /* CenterSelectionView.swift */; };
+		B64596C94471F3F94052B9FE /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459A808289C3C3D4046F9A /* ManageViewController.swift */; };
+		B64599085BAFFA22AC6A12F9 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64594CCE55A297377618013 /* Core.swift */; };
+		B6459998D7743DE77A7BAAFC /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6459121CC95BF607809EA95 /* tick.wav */; };
+		B64599F24A5F51A3CAF37797 /* KidsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459AC6DF4A0ED9B81FBFB6 /* KidsGroup.swift */; };
+		B6459A105D0F70EF9CE841D6 /* KidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459C30A728AC491936CA05 /* KidCell.swift */; };
+		B6459B006D759DA0403657F6 /* tick2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6459045EEC8AB25EF197DB6 /* tick2.wav */; };
+		B6459C48DA30DB33EBC114B6 /* SelectWheelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */; };
+		B6459CB6AEEAEA95DC400188 /* HistoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459739EC80E90D2D5BD284 /* HistoryEvent.swift */; };
+		B6459CDEED041EA68C44497D /* KidPickedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64595DC76C27B7144E9C672 /* KidPickedView.swift */; };
+		B6459EA9568AFFD088B471A6 /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645955FE3610A51EA4DB336 /* WheelView.swift */; };
+		B6459F591CE4C87CC9ED6563 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459C7A11125804B7D38CFC /* SelectViewController.swift */; };
 		CE1A8E051E41425900AD8E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A8E041E41425900AD8E9C /* AppDelegate.swift */; };
-		CE1A8E071E41425900AD8E9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A8E061E41425900AD8E9C /* ViewController.swift */; };
-		CE1A8E0A1E41425900AD8E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1A8E081E41425900AD8E9C /* Main.storyboard */; };
 		CE1A8E0C1E41425900AD8E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1A8E0B1E41425900AD8E9C /* Assets.xcassets */; };
 		CE1A8E0F1E41425900AD8E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1A8E0D1E41425900AD8E9C /* LaunchScreen.storyboard */; };
+		CE22EE941E6A27D50007AA0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE22EE931E6A27D50007AA0E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fairrad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fairrad.release.xcconfig"; path = "Pods/Target Support Files/Pods-fairrad/Pods-fairrad.release.xcconfig"; sourceTree = "<group>"; };
+		961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fairrad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fairrad/Pods-fairrad.debug.xcconfig"; sourceTree = "<group>"; };
+		B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWheelCellView.swift; sourceTree = "<group>"; };
+		B6459045EEC8AB25EF197DB6 /* tick2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick2.wav; sourceTree = "<group>"; };
+		B6459121CC95BF607809EA95 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
+		B6459151A25D391378CC835E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fairrad/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		B64594CCE55A297377618013 /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		B645955FE3610A51EA4DB336 /* WheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
+		B64595DC76C27B7144E9C672 /* KidPickedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidPickedView.swift; sourceTree = "<group>"; };
+		B645967AB928A8D2AF0E6E2B /* SectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorView.swift; sourceTree = "<group>"; };
+		B64596E8D66205D4058F24DE /* WheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
+		B6459739EC80E90D2D5BD284 /* HistoryEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEvent.swift; sourceTree = "<group>"; };
+		B645973FEF6A06DAC35C20C4 /* Kid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
+		B6459A808289C3C3D4046F9A /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageViewController.swift; path = manage/ManageViewController.swift; sourceTree = "<group>"; };
+		B6459AC6DF4A0ED9B81FBFB6 /* KidsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidsGroup.swift; sourceTree = "<group>"; };
+		B6459C30A728AC491936CA05 /* KidCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KidCell.swift; path = manage/KidCell.swift; sourceTree = "<group>"; };
+		B6459C7A11125804B7D38CFC /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		B6459D2A6854493277793918 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B6459E762D6D7307978C722E /* CenterSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterSelectionView.swift; sourceTree = "<group>"; };
 		CE1A8E011E41425900AD8E9C /* fairrad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fairrad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1A8E041E41425900AD8E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE1A8E061E41425900AD8E9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE1A8E091E41425900AD8E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE1A8E0B1E41425900AD8E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1A8E0E1E41425900AD8E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1A8E101E41425900AD8E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE22EE931E6A27D50007AA0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +65,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				031D2469D5BBEB4DBE5B2F2D /* Pods_fairrad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AD789A399161E3AA6C47C2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EBF7E177F0A4AD8A27B7CB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */,
+				6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B6459013B4B1ECB467F9ECEA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B6459AC6DF4A0ED9B81FBFB6 /* KidsGroup.swift */,
+				B645973FEF6A06DAC35C20C4 /* Kid.swift */,
+				B6459739EC80E90D2D5BD284 /* HistoryEvent.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B645920351E371AEB9BA6F6B /* select */ = {
+			isa = PBXGroup;
+			children = (
+				B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */,
+				B6459C7A11125804B7D38CFC /* SelectViewController.swift */,
+			);
+			path = select;
+			sourceTree = "<group>";
+		};
+		B64593C9D0543A040ECCA50E /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				B645967BCB6E365881EA8459 /* Main.storyboard */,
+				B64596199D4178B73B45EE56 /* wheel */,
+				B6459A808289C3C3D4046F9A /* ManageViewController.swift */,
+				B6459C30A728AC491936CA05 /* KidCell.swift */,
+				B645920351E371AEB9BA6F6B /* select */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		B64594878BD006B33F3A89FA /* core */ = {
+			isa = PBXGroup;
+			children = (
+				B64594CCE55A297377618013 /* Core.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		B64596199D4178B73B45EE56 /* wheel */ = {
+			isa = PBXGroup;
+			children = (
+				B64596E8D66205D4058F24DE /* WheelViewController.swift */,
+				B6459E762D6D7307978C722E /* CenterSelectionView.swift */,
+				B645967AB928A8D2AF0E6E2B /* SectorView.swift */,
+				B645955FE3610A51EA4DB336 /* WheelView.swift */,
+				B64595DC76C27B7144E9C672 /* KidPickedView.swift */,
+			);
+			path = wheel;
+			sourceTree = "<group>";
+		};
 		CE1A8DF81E41425800AD8E9C = {
 			isa = PBXGroup;
 			children = (
 				CE1A8E031E41425900AD8E9C /* fairrad */,
 				CE1A8E021E41425900AD8E9C /* Products */,
+				5EBF7E177F0A4AD8A27B7CB6 /* Pods */,
+				1AD789A399161E3AA6C47C2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +161,17 @@
 		CE1A8E031E41425900AD8E9C /* fairrad */ = {
 			isa = PBXGroup;
 			children = (
+				CE22EE931E6A27D50007AA0E /* GoogleService-Info.plist */,
 				CE1A8E041E41425900AD8E9C /* AppDelegate.swift */,
-				CE1A8E061E41425900AD8E9C /* ViewController.swift */,
-				CE1A8E081E41425900AD8E9C /* Main.storyboard */,
 				CE1A8E0B1E41425900AD8E9C /* Assets.xcassets */,
 				CE1A8E0D1E41425900AD8E9C /* LaunchScreen.storyboard */,
 				CE1A8E101E41425900AD8E9C /* Info.plist */,
+				B64593C9D0543A040ECCA50E /* ui */,
+				B64594878BD006B33F3A89FA /* core */,
+				B6459013B4B1ECB467F9ECEA /* model */,
+				B6459D2A6854493277793918 /* Util.swift */,
+				B6459121CC95BF607809EA95 /* tick.wav */,
+				B6459045EEC8AB25EF197DB6 /* tick2.wav */,
 			);
 			path = fairrad;
 			sourceTree = "<group>";
@@ -71,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE1A8E131E41425900AD8E9C /* Build configuration list for PBXNativeTarget "fairrad" */;
 			buildPhases = (
+				FB26D997A079C3AAE68218CB /* [CP] Check Pods Manifest.lock */,
 				CE1A8DFD1E41425800AD8E9C /* Sources */,
 				CE1A8DFE1E41425800AD8E9C /* Frameworks */,
 				CE1A8DFF1E41425800AD8E9C /* Resources */,
+				4B592D84F26224CA863F05D4 /* [CP] Embed Pods Frameworks */,
+				8F420E966F377F99B5183C43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,29 +241,93 @@
 			files = (
 				CE1A8E0F1E41425900AD8E9C /* LaunchScreen.storyboard in Resources */,
 				CE1A8E0C1E41425900AD8E9C /* Assets.xcassets in Resources */,
-				CE1A8E0A1E41425900AD8E9C /* Main.storyboard in Resources */,
+				B645927652F367D17CFEE2FC /* Main.storyboard in Resources */,
+				B6459998D7743DE77A7BAAFC /* tick.wav in Resources */,
+				B6459B006D759DA0403657F6 /* tick2.wav in Resources */,
+				CE22EE941E6A27D50007AA0E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B592D84F26224CA863F05D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fairrad/Pods-fairrad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F420E966F377F99B5183C43 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fairrad/Pods-fairrad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB26D997A079C3AAE68218CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE1A8DFD1E41425800AD8E9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1A8E071E41425900AD8E9C /* ViewController.swift in Sources */,
 				CE1A8E051E41425900AD8E9C /* AppDelegate.swift in Sources */,
+				B64599085BAFFA22AC6A12F9 /* Core.swift in Sources */,
+				B64599F24A5F51A3CAF37797 /* KidsGroup.swift in Sources */,
+				B645928331629A1B124C4160 /* Kid.swift in Sources */,
+				B6459CB6AEEAEA95DC400188 /* HistoryEvent.swift in Sources */,
+				B645936AAAF120B0474F130B /* Util.swift in Sources */,
+				B6459182715E881A3F434A3F /* WheelViewController.swift in Sources */,
+				B64594321644D8D2C1123115 /* CenterSelectionView.swift in Sources */,
+				B645901461969D742AEE1C48 /* SectorView.swift in Sources */,
+				B6459EA9568AFFD088B471A6 /* WheelView.swift in Sources */,
+				B64596C94471F3F94052B9FE /* ManageViewController.swift in Sources */,
+				B6459A105D0F70EF9CE841D6 /* KidCell.swift in Sources */,
+				B6459CDEED041EA68C44497D /* KidPickedView.swift in Sources */,
+				B6459C48DA30DB33EBC114B6 /* SelectWheelCellView.swift in Sources */,
+				B6459F591CE4C87CC9ED6563 /* SelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE1A8E081E41425900AD8E9C /* Main.storyboard */ = {
+		B645967BCB6E365881EA8459 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE1A8E091E41425900AD8E9C /* Base */,
+				B6459151A25D391378CC835E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -204,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -248,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -259,27 +438,33 @@
 		};
 		CE1A8E141E41425900AD8E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CVU9AA4FB;
 				INFOPLIST_FILE = fairrad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.komaxx.fairrad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		CE1A8E151E41425900AD8E9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CVU9AA4FB;
 				INFOPLIST_FILE = fairrad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.komaxx.fairrad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -302,6 +487,7 @@
 				CE1A8E151E41425900AD8E9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

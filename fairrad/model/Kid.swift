@@ -10,20 +10,15 @@ class Kid : CustomStringConvertible{
     let id : String;
 
     var name : String
-    var picPath : String
+    var picPath : String?
     var color : UIColor = UIColor.randomColor()
 
     var history : [HistoryEvent] = [HistoryEvent]()
 
-    init(name : String, picPath: String){
-        self.id = UUID().uuidString;
-
+    init(id: String, name: String, picPath: String?){
+        self.id = id
         self.name = name;
         self.picPath = picPath;
-    }
-
-    func createRandomHistory(){
-
     }
 
     var description: String {
