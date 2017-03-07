@@ -18,7 +18,7 @@ class WheelView : UIView , UIGestureRecognizerDelegate {
     let FOCUS_ANGLE = (Float.pi*0.5)
 
     /// The angular speed will be multiplied with this per frame
-    let SLOW_DOWN_FACTOR = 0.975
+    let SLOW_DOWN_FACTOR = 0.985
 
     /// when the angular speed falls under this, the movement is considered 'stopped'
     let STOP_SPEED = 0.025

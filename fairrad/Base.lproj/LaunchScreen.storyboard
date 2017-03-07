@@ -21,15 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-8L-0K8">
-                                <rect key="frame" x="224" y="312" width="321" height="300"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-8L-0K8">
+                                <rect key="frame" x="144.5" y="237" width="480" height="450"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="ePs-x3-59a"/>
+                                    <constraint firstAttribute="height" constant="450" id="ePs-x3-59a"/>
                                     <constraint firstAttribute="width" secondItem="djZ-8L-0K8" secondAttribute="height" multiplier="205:192" id="huT-Az-RxP"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="djZ-8L-0K8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="Nqp-Im-A4x"/>
                             <constraint firstItem="djZ-8L-0K8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oEL-xz-yaW"/>

@@ -66,6 +66,8 @@ class KidsGroup : Equatable {
     func appendKid(_ id: String) {
         kids.append(id)
         recomputeWeights()
+
+        self.notify()
     }
 
     func kidPicked(id: String) {
@@ -77,6 +79,7 @@ class KidsGroup : Equatable {
         let nuEvent = HistoryEvent(withChosenKid: id, timeStamp: Date())
         self.history.append(nuEvent)
         self.executeHistoryEvent(nuEvent)
+        self.notify()
     }
 
     private func recomputeWeights() {
@@ -115,8 +118,6 @@ class KidsGroup : Equatable {
             }
             kidWeights[event.chosenKid] = 1
         } // else: keep all weights the same
-
-        notify();
     }
 
     ///

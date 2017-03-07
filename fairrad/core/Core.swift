@@ -129,19 +129,19 @@ class Core {
 
         let yesOrNoGroup = KidsGroup(name: "Ja oder nein", style: .chances_stay_the_same)
         let yes1 = addKid(id: "yes_green_1", name: "JA", picPath: nil)
-        yes1.color = UIColor.green
+        yes1.color = UIColor.init(red: 0, green: 0.6, blue: 0, alpha: 1)
         yesOrNoGroup.appendKid(yes1.id)
 
         let no1 = addKid(id: "no_red_1", name: "NEIN", picPath: nil)
-        no1.color = UIColor.red
+        no1.color = UIColor.init(red: 0.6, green: 0, blue: 0, alpha: 1)
         yesOrNoGroup.appendKid(no1.id)
 
         let yes2 = addKid(id: "yes_green_2", name: "JA", picPath: nil)
-        yes2.color = UIColor.green
+        yes2.color = UIColor.init(red: 0, green: 0.6, blue: 0, alpha: 1)
         yesOrNoGroup.appendKid(yes2.id)
 
         let no2 = addKid(id: "no_red_2", name: "NEIN", picPath: nil)
-        no2.color = UIColor.red
+        no2.color = UIColor.init(red: 0.6, green: 0, blue: 0, alpha: 1)
         yesOrNoGroup.appendKid(no2.id)
 
         self.kidsGroups.append(yesOrNoGroup)

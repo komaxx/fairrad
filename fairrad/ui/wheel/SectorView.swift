@@ -50,7 +50,7 @@ class SectorView : UIView {
 
         self.kidNameLabel.sizeToFit()
         self.kidNameLabel.frame = CGRect(
-                x:bounds.width-self.kidNameLabel.frame.width - 15,
+                x:bounds.width-self.kidNameLabel.frame.width - 40,
                 y:(self.bounds.height-self.kidNameLabel.frame.height)/2,
                 width: self.kidNameLabel.frame.width, height: self.kidNameLabel.frame.height)
     }
@@ -140,8 +140,14 @@ class SectorView : UIView {
     func showKid(_ kid: Kid) {
         self.kidID = kid.id
         self.kidNameLabel.text = kid.name
-        self.highlightLayer.strokeColor = kid.color.lightened().cgColor
-        self.backgroundLayer.fillColor = kid.color.cgColor
+
+        if smallMode {
+            self.highlightLayer.strokeColor = kid.color.lightened().cgColor
+            self.backgroundLayer.fillColor = kid.color.cgColor
+        } else {
+            self.highlightLayer.strokeColor = kid.color.cgColor
+            self.backgroundLayer.fillColor = kid.color.lightened().cgColor
+        }
 
         self.setNeedsLayout()
     }

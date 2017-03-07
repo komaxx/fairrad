@@ -11,6 +11,22 @@ class SelectViewController : UIViewController
 {
     @IBOutlet weak var collectionView: UICollectionView!
 
+    var highlightedIndexPath : IndexPath?
+
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(kidsGroupChanged), name: NSNotification.Name.KidsGroupChanged, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    func kidsGroupChanged() {
+        collectionView.reloadData()
+    }
 
     // ////////////////////////////////////////////////////////
     // delegate / data-source
@@ -21,6 +37,11 @@ class SelectViewController : UIViewController
             as! SelectWheelCellView
 
         cell.bind(toKidsGroup: Core.instance.kidsGroups[indexPath.row])
+        if (indexPath == highlightedIndexPath){
+            styleAsSelected(cell)
+        } else {
+            styleAsUnselected(cell)
+        }
 
         return cell
     }
@@ -36,11 +57,38 @@ class SelectViewController : UIViewController
             return
         }
 
-        print("Index path row: \(indexPath.row), item: \(indexPath.item)")
-        
-        Core.instance.makeGroupCurrent(Core.instance.kidsGroups[indexPath.row])
+        Core.instance.makeGroupCurrent(Core.instance.kidsGroups[indexPath.item])
         let wheelViewController = storyBoard.instantiateViewController(withIdentifier: "MainWheelController")
         present(wheelViewController, animated: true)
     }
 
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let prevIndexPath = highlightedIndexPath {
+            self.styleAsUnselected(collectionView.cellForItem(at: prevIndexPath))
+        }
+        self.highlightedIndexPath = indexPath
+        self.styleAsSelected(collectionView.cellForItem(at: indexPath))
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let prevIndexPath = highlightedIndexPath {
+            self.styleAsUnselected(collectionView.cellForItem(at: prevIndexPath))
+        }
+        highlightedIndexPath = nil
+    }
+
+
+    private func styleAsSelected(_ item: UICollectionViewCell?) {
+        guard let cell = item else {
+            return
+        }
+        cell.backgroundColor = UIColor.darkGray
+    }
+
+    private func styleAsUnselected(_ item: UICollectionViewCell?) {
+        guard let cell = item else {
+            return
+        }
+        cell.backgroundColor = UIColor.clear
+    }
 }
