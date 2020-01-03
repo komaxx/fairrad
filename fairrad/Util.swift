@@ -10,21 +10,21 @@ func randomFloat(_ min: CGFloat, _ max: CGFloat) -> CGFloat {
 }
 
 func randomFloat() -> CGFloat {
-    return randomFloat(0, 1);
+    return randomFloat(0, 1)
 }
 
 func isIn(_ toCheck: CGFloat, minIncl: CGFloat, maxExcl: CGFloat) -> Bool {
-    return toCheck >= minIncl && toCheck < maxExcl;
+    return toCheck >= minIncl && toCheck < maxExcl
 }
 
 infix operator ><: ComparisonPrecedence
 
 func ><(toCheck: CGFloat, inIncl: (CGFloat, CGFloat)) -> Bool {
-    return (toCheck >= inIncl.0) && (toCheck <= inIncl.1);
+    return (toCheck >= inIncl.0) && (toCheck <= inIncl.1)
 }
 
 func ><(toCheck: Float, inIncl: (Float, Float)) -> Bool {
-    return (toCheck >= inIncl.0) && (toCheck <= inIncl.1);
+    return (toCheck >= inIncl.0) && (toCheck <= inIncl.1)
 }
 
 func clipToUnitCircle(angle: CGFloat) -> CGFloat {

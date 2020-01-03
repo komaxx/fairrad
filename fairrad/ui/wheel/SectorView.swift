@@ -87,12 +87,12 @@ class SectorView: UIView {
     }
 
     func updateRadianSpan(_ radius: Float, _ radians: Float) {
-        self.radianSpan = radians;
-        self.radius = radius;
+        self.radianSpan = radians
+        self.radius = radius
 
         let sine = sin(radians / 2)
 
-        var halfHeight = radius * sine;
+        var halfHeight = radius * sine
         if radians > Float.pi {
             halfHeight = radius
         }
@@ -100,7 +100,7 @@ class SectorView: UIView {
         self.frame = CGRect(x: 0, y: 0, width: Int(radius), height: Int(halfHeight * 2))
 
         let innerRadius = radius * INNER_RADIUS_FACTOR
-        let path = UIBezierPath();
+        let path = UIBezierPath()
         path.addArc(
                 withCenter: CGPoint(x: CGFloat(0), y: CGFloat(halfHeight)),
                 radius: CGFloat(innerRadius),
@@ -117,11 +117,11 @@ class SectorView: UIView {
 
         path.close()
 
-        self.backgroundLayer.path = path.cgPath;
-        self.highlightLayer.path = path.cgPath;
+        self.backgroundLayer.path = path.cgPath
+        self.highlightLayer.path = path.cgPath
 
         // only show the label when the slice is not too narrow
-        kidNameLabel.isHidden = smallMode || CGFloat(halfHeight) < kidNameLabel.bounds.size.height;
+        kidNameLabel.isHidden = smallMode || CGFloat(halfHeight) < kidNameLabel.bounds.size.height
 
         // TODO: decide whether clipping is necessary or not (only for the last drawn
         // TODO: sector and then only when the content does not fit in the bounds)
@@ -133,7 +133,7 @@ class SectorView: UIView {
 
     func updateTargetRadians(_ targetRadians: Float) {
         updateTransform(animationSpeed: -1)
-        self.targetRadians = targetRadians;
+        self.targetRadians = targetRadians
         updateTransform(animationSpeed: 0.55)
     }
 
@@ -155,7 +155,7 @@ class SectorView: UIView {
     private func updateTransform(animationSpeed: Double) {
         // update position
 
-        var targetTransform = CGAffineTransform(rotationAngle: CGFloat(self.targetRadians));
+        var targetTransform = CGAffineTransform(rotationAngle: CGFloat(self.targetRadians))
         if (self.highlighted) {
             targetTransform = CGAffineTransform(scaleX: 1.01, y: 1.01).concatenating(targetTransform)
         }

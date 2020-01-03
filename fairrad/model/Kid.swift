@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 class Kid: CustomStringConvertible {
-    let id: String;
+    let id: String
 
     var name: String
     var picPath: String?
@@ -17,8 +17,8 @@ class Kid: CustomStringConvertible {
 
     init(id: String, name: String, picPath: String?) {
         self.id = id
-        self.name = name;
-        self.picPath = picPath;
+        self.name = name
+        self.picPath = picPath
     }
 
     var description: String {

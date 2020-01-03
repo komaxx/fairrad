@@ -1,21 +1,12 @@
 {
-  "images": [
+  "images" : [
     {
-      "idiom": "universal",
-      "filename": "Sophia.JPG",
-      "scale": "1x"
-    },
-    {
-      "idiom": "universal",
-      "scale": "2x"
-    },
-    {
-      "idiom": "universal",
-      "scale": "3x"
+      "idiom" : "universal",
+      "filename" : "dog20.jpeg"
     }
   ],
-  "info": {
-    "version": 1,
-    "author": "xcode"
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
   }
 }

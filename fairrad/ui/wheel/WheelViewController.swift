@@ -42,7 +42,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
             print("Shoot :<")
             print(error)
         }
-        self.wheelView.delegate = self;
+        self.wheelView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +57,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
                 selector: #selector(kidsGroupChanged),
                 name: NSNotification.Name.KidsGroupChanged, object: nil)
 
-        self.wheelView.update(withGroup: Core.instance.currentGroup);
+        self.wheelView.update(withGroup: Core.instance.currentGroup)
     }
 
     @objc func kidsGroupChanged() {
@@ -90,7 +90,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
         // print("tick: \(nuKidId)")
         centerView.update(withKidId: nuKidId)
 
-        self.topIndicator.transform = CGAffineTransform(rotationAngle: (((angleSpeed > 0) ? -1 : 1) * (CGFloat.pi / 20)));
+        self.topIndicator.transform = CGAffineTransform(rotationAngle: (((angleSpeed > 0) ? -1 : 1) * (CGFloat.pi / 20)))
         UIView.animate(withDuration: 0.1, animations: {
             self.topIndicator.transform = CGAffineTransform.identity
         })
@@ -112,7 +112,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
             for player in self.tickPlayers {
                 if !player.isPlaying {
                     player.play()
-                    break;
+                    break
                 }
             }
         }

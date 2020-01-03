@@ -54,7 +54,7 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(panning))
         recognizer.minimumNumberOfTouches = 1
         recognizer.maximumNumberOfTouches = 2
-        recognizer.delegate = self;
+        recognizer.delegate = self
         addGestureRecognizer(recognizer)
 
         // make it tumble! Tumbling is fun :)
@@ -84,7 +84,7 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
         let angle = atan2(deltaY, deltaX)
 
         stopAnimation()
-        let state = gestureRecognizer.state;
+        let state = gestureRecognizer.state
         if state == .began {
             touchDownRadians = angle
         } else if (state == .ended) || (state == .cancelled) {
@@ -116,7 +116,7 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
         self.currentRadians = clipToUnitCircle(angle: nuRadians)
         self.spinHistory.addEntry(currentRadians)
 
-        self.recomputeHighlightedKid();
+        self.recomputeHighlightedKid()
     }
 
     private func findSectorForAngle(_ radians: Float) -> SectorView? {
@@ -130,7 +130,7 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
         for sectorView in sectorViews.values {
             let activeArea = (sectorView.targetRadians - sectorView.radianSpan / 2, sectorView.targetRadians + sectorView.radianSpan / 2)
             if adjustedRadians >< activeArea {
-                return sectorView;
+                return sectorView
             }
         }
         return nil
@@ -384,13 +384,13 @@ class SpinHistory {
             lastEntry = entry
         }
 
-        let checkedHistoryTime = relevantHistory.first!.timestamp.timeIntervalSince(relevantHistory.last!.timestamp);
+        let checkedHistoryTime = relevantHistory.first!.timestamp.timeIntervalSince(relevantHistory.last!.timestamp)
 
         return abs(Double(radiansCollector) / checkedHistoryTime) > MIN_FLING_SPEED
     }
 }
 
 struct SpinHistoryEntry {
-    let timestamp: Date;
-    let radians: CGFloat;
+    let timestamp: Date
+    let radians: CGFloat
 }

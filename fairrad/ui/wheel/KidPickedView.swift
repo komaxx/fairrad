@@ -69,7 +69,7 @@ class KidPickedView: UIView {
         self.alpha = 0
 
         self.kidFaceView.transform = CGAffineTransform.identity
-        self.kidFaceView.alpha = 0;
+        self.kidFaceView.alpha = 0
 
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 1
