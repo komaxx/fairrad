@@ -1,3 +1,5 @@
+<img src="/appIcon.png" alt="fairrad logo" width="20%"/>
+
 # fairrad
 
 fairrad is a small app targeted at iPads to choose from a list of possibilities with a wheel-of-fortune like interface. It's original intent was for teachers to pick kids for some task (say: "Tell a story about your weekend") in a fun, and random way. 
