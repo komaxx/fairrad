@@ -11,9 +11,11 @@ Development of the view itself is complete. More advanced tasks (manage groups, 
 
 ## Screenshots
 
-<a href="/screenshot5.png"><img src="/screenshot5.png" alt="Screenshot 1" width="25%"></a>
-
-![Screenshot|100x256](/screenshot1.png?raw=true "Screenshot 1") ![Screenshot](/screenshot2.png?raw=true "Screenshot 2") ![Screenshot](/screenshot3.png?raw=true "Screenshot 3") ![Screenshot](/screenshot4.png?raw=true "Screenshot 4") ![Screenshot](/screenshot5.png?raw=true "Screenshot 5")
+<a href="/screenshot1.png"><img src="/screenshot1.png" alt="Screenshot 1" width="25%" /></a>
+<a href="/screenshot2.png"><img src="/screenshot2.png" alt="Screenshot 2" width="25%" /></a>
+<a href="/screenshot3.png"><img src="/screenshot3.png" alt="Screenshot 3" width="25%" /></a>
+<a href="/screenshot4.png"><img src="/screenshot4.png" alt="Screenshot 4" width="25%" /></a>
+<a href="/screenshot5.png"><img src="/screenshot5.png" alt="Screenshot 5" width="25%" /></a>
 
 ## Usage
 
