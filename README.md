@@ -7,7 +7,7 @@ Development of the view itself is complete. More advanced tasks (manage groups, 
 ## Video
 
 [![VIDEO](https://img.youtube.com/vi/jYVtU-YP1wQ/0.jpg)](https://www.youtube.com/watch?v=jYVtU-YP1wQ)
-
+(Click to open in YouTube)
 
 ## Screenshots
 
