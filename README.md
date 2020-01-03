@@ -4,9 +4,16 @@ fairrad is a small app targeted at iPads to choose from a list of possibilities 
 
 Development of the view itself is complete. More advanced tasks (manage groups, store data in cloud, create new wheels) are just sketched.
 
+## Video
+
+[![VIDEO](https://img.youtube.com/vi/jYVtU-YP1wQ/0.jpg)](https://www.youtube.com/watch?v=jYVtU-YP1wQ)
+
+
 ## Screenshots
 
-![Screenshot](/screenshot1.png?raw=true "Screenshot 1") ![Screenshot](/screenshot2.png?raw=true "Screenshot 2") ![Screenshot](/screenshot3.png?raw=true "Screenshot 3") ![Screenshot](/screenshot4.png?raw=true "Screenshot 4") ![Screenshot](/screenshot5.png?raw=true "Screenshot 5")
+<a href="/screenshot5.png"><img src="/screenshot5.png" alt="Screenshot 1" width="25%"></a>
+
+![Screenshot|100x256](/screenshot1.png?raw=true "Screenshot 1") ![Screenshot](/screenshot2.png?raw=true "Screenshot 2") ![Screenshot](/screenshot3.png?raw=true "Screenshot 3") ![Screenshot](/screenshot4.png?raw=true "Screenshot 4") ![Screenshot](/screenshot5.png?raw=true "Screenshot 5")
 
 ## Usage
 
