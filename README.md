@@ -1,4 +1,6 @@
+<p align="center">
 <img src="/appIcon.png" alt="fairrad logo" width="20%"/>
+</p>
 
 # fairrad
 
