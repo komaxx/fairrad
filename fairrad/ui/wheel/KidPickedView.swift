@@ -9,14 +9,14 @@ import UIKit
 ///
 /// Shown when the wheel stopped spinning and a kid was picked.
 ///
-class KidPickedView : UIView {
-    @IBOutlet weak var kidFaceView : UIImageView!
-    @IBOutlet weak var kidNameView : UILabel!
-    @IBOutlet weak var kidCenterNameView : UILabel!
-    
-    var shownKidId : String = ""
+class KidPickedView: UIView {
+    @IBOutlet weak var kidFaceView: UIImageView!
+    @IBOutlet weak var kidNameView: UILabel!
+    @IBOutlet weak var kidCenterNameView: UILabel!
 
-    
+    var shownKidId: String = ""
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.isHidden = true
@@ -51,7 +51,7 @@ class KidPickedView : UIView {
         })
     }
 
-    func show(forKid kid : Kid){
+    func show(forKid kid: Kid) {
         shownKidId = kid.id
         kidNameView.text = kid.name
         kidCenterNameView.text = kid.name
@@ -81,13 +81,13 @@ class KidPickedView : UIView {
     private func appearContent() {
         self.kidFaceView.transform = CGAffineTransform(scaleX: 0.7, y: 0.1)
 
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.2, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.2, options: UIView.AnimationOptions.beginFromCurrentState, animations: {
             self.kidFaceView.transform = CGAffineTransform.identity
             self.kidFaceView.alpha = 1
         }, completion: { finished in
 
         })
     }
-    
-    
+
+
 }

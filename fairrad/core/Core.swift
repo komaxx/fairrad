@@ -16,13 +16,13 @@ class Core {
     // singleton
     // //////////////////////////////////////////////////////////
 
-    private(set) var currentGroup : KidsGroup
+    private(set) var currentGroup: KidsGroup
 
     private(set) var kidsGroups = [KidsGroup]()
-    private var kids = [String : Kid]()
+    private var kids = [String: Kid]()
 
-    private let groupsSorterByLastAccess : (KidsGroup, KidsGroup) -> Bool = { a, b in
-        if a.lastTimeCurrent == b.lastTimeCurrent{
+    private let groupsSorterByLastAccess: (KidsGroup, KidsGroup) -> Bool = { a, b in
+        if a.lastTimeCurrent == b.lastTimeCurrent {
             // Special case: Same age. sort by id as fallback
             // TODO
         }
@@ -30,8 +30,8 @@ class Core {
     }
 
 
-    private init(){
-        currentGroup = KidsGroup(name:"initial group", style: .chances_stay_the_same)
+    private init() {
+        currentGroup = KidsGroup(name: "initial group", style: .chances_stay_the_same)
 
         loadData()
 
@@ -49,10 +49,12 @@ class Core {
     }
 
     func group(withId groupId: String) -> KidsGroup? {
-        return kidsGroups.first { group in group.id==groupId }
+        return kidsGroups.first { group in
+            group.id == groupId
+        }
     }
 
-    func makeGroupCurrent(_ nuCurrent : KidsGroup){
+    func makeGroupCurrent(_ nuCurrent: KidsGroup) {
         guard currentGroup != nuCurrent else {
             print("Already current.")
             return
@@ -75,8 +77,8 @@ class Core {
         return addKid(name: name, picPath: name)
     }
 
-    private func addKid(name: String, picPath: String) -> Kid{
-        return addKid(id:(UUID().uuidString), name: name, picPath: picPath)
+    private func addKid(name: String, picPath: String) -> Kid {
+        return addKid(id: (UUID().uuidString), name: name, picPath: picPath)
     }
 
     private func addKid(id: String, name: String, picPath: String?) -> Kid {
@@ -119,8 +121,8 @@ class Core {
         self.kidsGroups.append(sitCircleGroup)
 
         // make the kids rainbow colored for the beginning
-        let hueDelta : CGFloat = 1.0 / CGFloat(sitCircleGroup.kids.count)
-        var hue : CGFloat = 0
+        let hueDelta: CGFloat = 1.0 / CGFloat(sitCircleGroup.kids.count)
+        var hue: CGFloat = 0
         for kidId in sitCircleGroup.kids {
             self.kids[kidId]!.color = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
             hue += hueDelta

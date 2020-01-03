@@ -6,12 +6,11 @@
 import Foundation
 import UIKit
 
-class SelectViewController : UIViewController
-        , UICollectionViewDelegate, UICollectionViewDataSource
-{
+class SelectViewController: UIViewController
+        , UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var highlightedIndexPath : IndexPath?
+    var highlightedIndexPath: IndexPath?
 
 
     override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +23,7 @@ class SelectViewController : UIViewController
         NotificationCenter.default.removeObserver(self)
     }
 
-    func kidsGroupChanged() {
+    @objc func kidsGroupChanged() {
         collectionView.reloadData()
     }
 
@@ -34,10 +33,10 @@ class SelectViewController : UIViewController
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let CellIdentifier = "WheelCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath)
-            as! SelectWheelCellView
+                as! SelectWheelCellView
 
         cell.bind(toKidsGroup: Core.instance.kidsGroups[indexPath.row])
-        if (indexPath == highlightedIndexPath){
+        if (indexPath == highlightedIndexPath) {
             styleAsSelected(cell)
         } else {
             styleAsUnselected(cell)
@@ -49,7 +48,7 @@ class SelectViewController : UIViewController
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Core.instance.kidsGroups.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // go to wheel view
         guard let storyBoard = self.storyboard else {
@@ -59,6 +58,7 @@ class SelectViewController : UIViewController
 
         Core.instance.makeGroupCurrent(Core.instance.kidsGroups[indexPath.item])
         let wheelViewController = storyBoard.instantiateViewController(withIdentifier: "MainWheelController")
+        wheelViewController.modalPresentationStyle = .fullScreen
         present(wheelViewController, animated: true)
     }
 

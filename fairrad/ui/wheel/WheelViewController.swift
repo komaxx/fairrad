@@ -18,8 +18,8 @@ class WheelViewController: UIViewController, WheelViewDelegate {
     @IBOutlet weak var topIndicator: UIImageView!
 
     @IBOutlet weak var kidPickedView: KidPickedView!
-    
-    
+
+
     // Grab the path, make sure to add it to your project!
 
     var tickPlayers = [AVAudioPlayer]()
@@ -60,7 +60,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
         self.wheelView.update(withGroup: Core.instance.currentGroup);
     }
 
-    func kidsGroupChanged() {
+    @objc func kidsGroupChanged() {
         self.wheelView.update(withGroup: Core.instance.currentGroup)
     }
 
@@ -88,7 +88,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
 
     func higlightedKidChanged(nuKidId: String?, angleSpeed: Double) {
         // print("tick: \(nuKidId)")
-        centerView.update(withKidId:nuKidId)
+        centerView.update(withKidId: nuKidId)
 
         self.topIndicator.transform = CGAffineTransform(rotationAngle: (((angleSpeed > 0) ? -1 : 1) * (CGFloat.pi / 20)));
         UIView.animate(withDuration: 0.1, animations: {

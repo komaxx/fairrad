@@ -5,10 +5,10 @@
 
 import UIKit
 
-class CenterSelectionView : UIView {
-    @IBOutlet weak var kidFaceView : UIImageView!
-    @IBOutlet weak var kidNameView : UILabel!
-    
+class CenterSelectionView: UIView {
+    @IBOutlet weak var kidFaceView: UIImageView!
+    @IBOutlet weak var kidNameView: UILabel!
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -20,7 +20,7 @@ class CenterSelectionView : UIView {
     }
 
     override func layoutSubviews() {
-        self.layer.cornerRadius = self.bounds.width/2
+        self.layer.cornerRadius = self.bounds.width / 2
         super.layoutSubviews()
     }
 

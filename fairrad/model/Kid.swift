@@ -6,16 +6,16 @@
 import Foundation
 import UIKit
 
-class Kid : CustomStringConvertible{
-    let id : String;
+class Kid: CustomStringConvertible {
+    let id: String;
 
-    var name : String
-    var picPath : String?
-    var color : UIColor = UIColor.randomColor()
+    var name: String
+    var picPath: String?
+    var color: UIColor = UIColor.randomColor()
 
-    var history : [HistoryEvent] = [HistoryEvent]()
+    var history: [HistoryEvent] = [HistoryEvent]()
 
-    init(id: String, name: String, picPath: String?){
+    init(id: String, name: String, picPath: String?) {
         self.id = id
         self.name = name;
         self.picPath = picPath;

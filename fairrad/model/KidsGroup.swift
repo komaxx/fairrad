@@ -19,22 +19,22 @@ extension Notification.Name {
 ///
 /// A group of kids. Like a class. But without being a protected keyword.
 ///
-class KidsGroup : Equatable {
-    private(set) var id : String
+class KidsGroup: Equatable {
+    private(set) var id: String
 
-    private(set) var name : String
-    private(set) var style : KidsGroupStyle
-    private(set) var kids : [String] = [String]()
+    private(set) var name: String
+    private(set) var style: KidsGroupStyle
+    private(set) var kids: [String] = [String]()
 
-    private(set) var history : [HistoryEvent] = [HistoryEvent]()
+    private(set) var history: [HistoryEvent] = [HistoryEvent]()
 
     /// computed from history
-    private(set) var kidWeights : [String:Int] = [String:Int]()
+    private(set) var kidWeights: [String: Int] = [String: Int]()
 
-    private(set) var lastTimeCurrent : Date
+    private(set) var lastTimeCurrent: Date
 
 
-    init(name: String, style:KidsGroupStyle){
+    init(name: String, style: KidsGroupStyle) {
         self.id = UUID().uuidString
 
         self.name = name
@@ -60,7 +60,7 @@ class KidsGroup : Equatable {
     /// Sums up the weight of all kids in the group
     ///
     func getOverallWeight() -> Int {
-        return max(1, kids.reduce(0, { $0 + weightForKid(withId: $1) }) )
+        return max(1, kids.reduce(0, { $0 + weightForKid(withId: $1) }))
     }
 
     func appendKid(_ id: String) {
@@ -106,7 +106,7 @@ class KidsGroup : Equatable {
     /// 'Executes' a single history event, i.e. calculates new kid weights
     /// based on the current state in the group
     ///
-    private func executeHistoryEvent(_ event : HistoryEvent) {
+    private func executeHistoryEvent(_ event: HistoryEvent) {
         if style == .gone_until_everybody_had_its_turn {
             kidWeights[event.chosenKid] = 0
             if getOverallWeight() < 1 {
@@ -125,7 +125,9 @@ class KidsGroup : Equatable {
     /// group - if present
     ///
     func getLatestHistoryEventForKid(kidId: String) -> HistoryEvent? {
-        return history.reversed().first { e in kidId == e.chosenKid  }
+        return history.reversed().first { e in
+            kidId == e.chosenKid
+        }
     }
 
     private func notify() {
@@ -140,6 +142,6 @@ class KidsGroup : Equatable {
     /// Equatable
     ///
     static func ==(lhs: KidsGroup, rhs: KidsGroup) -> Bool {
-        return lhs.id==rhs.id
+        return lhs.id == rhs.id
     }
 }

@@ -6,19 +6,19 @@
 import UIKit
 
 
-class SectorView : UIView {
-    let INNER_RADIUS_FACTOR : Float = 0.3
+class SectorView: UIView {
+    let INNER_RADIUS_FACTOR: Float = 0.3
 
     var kidNameLabel: UILabel!
     var kidImageView: UIImageView!
 
-    var kidID : String?
+    var kidID: String?
 
-    var targetRadians : Float = 0
+    var targetRadians: Float = 0
     var radianSpan = Float.pi
-    var radius : Float = 200
+    var radius: Float = 200
 
-    var path : UIBezierPath?
+    var path: UIBezierPath?
 
     var backgroundLayer: QuartzCore.CAShapeLayer!
     var highlightLayer: QuartzCore.CAShapeLayer!
@@ -26,7 +26,7 @@ class SectorView : UIView {
 
     var smallMode = false
 
-    var highlighted : Bool = false
+    var highlighted: Bool = false
 
 
     override init(frame: CGRect) {
@@ -50,18 +50,18 @@ class SectorView : UIView {
 
         self.kidNameLabel.sizeToFit()
         self.kidNameLabel.frame = CGRect(
-                x:bounds.width-self.kidNameLabel.frame.width - 40,
-                y:(self.bounds.height-self.kidNameLabel.frame.height)/2,
+                x: bounds.width - self.kidNameLabel.frame.width - 40,
+                y: (self.bounds.height - self.kidNameLabel.frame.height) / 2,
                 width: self.kidNameLabel.frame.width, height: self.kidNameLabel.frame.height)
     }
 
-    func setToSmallMode(smallMode : Bool){
+    func setToSmallMode(smallMode: Bool) {
         self.smallMode = smallMode
         self.kidNameLabel.isHidden = smallMode
     }
 
     private func setup() {
-        if (self.layer.mask != nil){
+        if (self.layer.mask != nil) {
             print("There was already a mask??")
         }
 
@@ -78,7 +78,7 @@ class SectorView : UIView {
         highlightLayer.lineWidth = 3
         self.highlightLayer.isHidden = true
 
-        self.kidNameLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 200, height: 10))
+        self.kidNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 10))
         self.kidNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.kidNameLabel.font = UIFont.systemFont(ofSize: 16)
         self.kidNameLabel.shadowColor = UIColor(white: 0.3, alpha: 0.4)
@@ -90,29 +90,29 @@ class SectorView : UIView {
         self.radianSpan = radians;
         self.radius = radius;
 
-        let sine = sin(radians/2)
+        let sine = sin(radians / 2)
 
         var halfHeight = radius * sine;
         if radians > Float.pi {
             halfHeight = radius
         }
 
-        self.frame = CGRect(x:0, y:0, width: Int(radius), height: Int(halfHeight*2))
+        self.frame = CGRect(x: 0, y: 0, width: Int(radius), height: Int(halfHeight * 2))
 
         let innerRadius = radius * INNER_RADIUS_FACTOR
         let path = UIBezierPath();
         path.addArc(
-                withCenter: CGPoint(x:CGFloat(0), y:CGFloat(halfHeight)),
-                radius:CGFloat(innerRadius),
-                startAngle: CGFloat(radians/2.0),
-                endAngle: CGFloat(-radians/2),
+                withCenter: CGPoint(x: CGFloat(0), y: CGFloat(halfHeight)),
+                radius: CGFloat(innerRadius),
+                startAngle: CGFloat(radians / 2.0),
+                endAngle: CGFloat(-radians / 2),
                 clockwise: false)
 
         path.addArc(
-                withCenter: CGPoint(x:CGFloat(0), y:CGFloat(halfHeight)),
-                radius:CGFloat(radius),
-                startAngle: CGFloat(-radians/2.0),
-                endAngle: CGFloat(radians/2),
+                withCenter: CGPoint(x: CGFloat(0), y: CGFloat(halfHeight)),
+                radius: CGFloat(radius),
+                startAngle: CGFloat(-radians / 2.0),
+                endAngle: CGFloat(radians / 2),
                 clockwise: true)
 
         path.close()
@@ -131,7 +131,7 @@ class SectorView : UIView {
 //        }
     }
 
-    func updateTargetRadians(_ targetRadians: Float){
+    func updateTargetRadians(_ targetRadians: Float) {
         updateTransform(animationSpeed: -1)
         self.targetRadians = targetRadians;
         updateTransform(animationSpeed: 0.55)
@@ -155,15 +155,15 @@ class SectorView : UIView {
     private func updateTransform(animationSpeed: Double) {
         // update position
 
-        var targetTransform = CGAffineTransform(rotationAngle:CGFloat(self.targetRadians));
-        if (self.highlighted){
+        var targetTransform = CGAffineTransform(rotationAngle: CGFloat(self.targetRadians));
+        if (self.highlighted) {
             targetTransform = CGAffineTransform(scaleX: 1.01, y: 1.01).concatenating(targetTransform)
         }
 
-        let options = UIViewAnimationOptions([UIViewAnimationOptions.curveEaseOut])
+        let options = UIView.AnimationOptions([UIView.AnimationOptions.curveEaseOut])
 
-        if (animationSpeed > 0){
-            UIView.animate(withDuration: animationSpeed, delay: 0, options:options, animations: {
+        if (animationSpeed > 0) {
+            UIView.animate(withDuration: animationSpeed, delay: 0, options: options, animations: {
                 self.transform = targetTransform
             }, completion: nil)
         } else {

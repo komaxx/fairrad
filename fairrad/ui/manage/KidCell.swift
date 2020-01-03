@@ -6,22 +6,22 @@
 import Foundation
 import UIKit
 
-class KidCell : UITableViewCell {
+class KidCell: UITableViewCell {
     @IBOutlet weak var rootView: UIView!
 
     @IBOutlet weak var faceView: UIImageView!
     @IBOutlet weak var nameView: UILabel!
-    
+
     @IBOutlet weak var lastPickView: UILabel!
 
-    @IBOutlet weak var leftBarView : UIView!
-    @IBOutlet weak var rightBarView : UIView!
-
-    
-    static var lastPickDateFormatter : DateFormatter!
+    @IBOutlet weak var leftBarView: UIView!
+    @IBOutlet weak var rightBarView: UIView!
 
 
-    func updateWith(kidId : String) {
+    static var lastPickDateFormatter: DateFormatter!
+
+
+    func updateWith(kidId: String) {
         guard let kid = Core.instance.kid(withId: kidId) else {
             print("Kid with if \(kidId) not found!")
             return

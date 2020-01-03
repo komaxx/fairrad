@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		031D2469D5BBEB4DBE5B2F2D /* Pods_fairrad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */; };
 		B645901461969D742AEE1C48 /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645967AB928A8D2AF0E6E2B /* SectorView.swift */; };
 		B6459182715E881A3F434A3F /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64596E8D66205D4058F24DE /* WheelViewController.swift */; };
 		B645927652F367D17CFEE2FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B645967BCB6E365881EA8459 /* Main.storyboard */; };
@@ -32,9 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fairrad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fairrad.release.xcconfig"; path = "Pods/Target Support Files/Pods-fairrad/Pods-fairrad.release.xcconfig"; sourceTree = "<group>"; };
-		961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fairrad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fairrad/Pods-fairrad.debug.xcconfig"; sourceTree = "<group>"; };
 		B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWheelCellView.swift; sourceTree = "<group>"; };
 		B6459045EEC8AB25EF197DB6 /* tick2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick2.wav; sourceTree = "<group>"; };
 		B6459121CC95BF607809EA95 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
@@ -65,30 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031D2469D5BBEB4DBE5B2F2D /* Pods_fairrad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AD789A399161E3AA6C47C2E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5C1D1717DE3E33B66C325DAE /* Pods_fairrad.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5EBF7E177F0A4AD8A27B7CB6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */,
-				6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B6459013B4B1ECB467F9ECEA /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,8 +123,6 @@
 			children = (
 				CE1A8E031E41425900AD8E9C /* fairrad */,
 				CE1A8E021E41425900AD8E9C /* Products */,
-				5EBF7E177F0A4AD8A27B7CB6 /* Pods */,
-				1AD789A399161E3AA6C47C2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,12 +159,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE1A8E131E41425900AD8E9C /* Build configuration list for PBXNativeTarget "fairrad" */;
 			buildPhases = (
-				FB26D997A079C3AAE68218CB /* [CP] Check Pods Manifest.lock */,
 				CE1A8DFD1E41425800AD8E9C /* Sources */,
 				CE1A8DFE1E41425800AD8E9C /* Frameworks */,
 				CE1A8DFF1E41425800AD8E9C /* Resources */,
-				4B592D84F26224CA863F05D4 /* [CP] Embed Pods Frameworks */,
-				8F420E966F377F99B5183C43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,7 +179,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Matthias Schicker";
 				TargetAttributes = {
 					CE1A8E001E41425800AD8E9C = {
@@ -218,7 +191,7 @@
 			};
 			buildConfigurationList = CE1A8DFC1E41425800AD8E9C /* Build configuration list for PBXProject "fairrad" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -249,54 +222,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4B592D84F26224CA863F05D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fairrad/Pods-fairrad-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8F420E966F377F99B5183C43 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fairrad/Pods-fairrad-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB26D997A079C3AAE68218CB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE1A8DFD1E41425800AD8E9C /* Sources */ = {
@@ -347,20 +272,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -397,20 +331,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -438,7 +381,6 @@
 		};
 		CE1A8E141E41425900AD8E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 961A9792E4ADAAB997848E07 /* Pods-fairrad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CVU9AA4FB;
@@ -447,14 +389,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.komaxx.fairrad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		CE1A8E151E41425900AD8E9C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6042964E7AF1C8633CCA78B3 /* Pods-fairrad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CVU9AA4FB;
@@ -463,7 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.komaxx.fairrad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

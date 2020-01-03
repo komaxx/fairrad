@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class ManageViewController : UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class ManageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var kidsTable: UITableView!
 
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -20,7 +20,7 @@ class ManageViewController : UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "KidCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        let kidCell : KidCell = cell as! KidCell
+        let kidCell: KidCell = cell as! KidCell
 
         kidCell.updateWith(kidId: Core.instance.currentGroup.kids[indexPath.row])
 
