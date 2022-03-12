@@ -16,6 +16,8 @@ class Core {
     // singleton
     // //////////////////////////////////////////////////////////
 
+    private let storage: Storage = Storage()
+    
     private(set) var currentGroup: KidsGroup
 
     private(set) var kidsGroups = [KidsGroup]()
@@ -31,17 +33,18 @@ class Core {
 
 
     private init() {
-        currentGroup = KidsGroup(name: "initial group", style: .chances_stay_the_same)
+        currentGroup = KidsGroup(id: "<initial>", name: "initial group", style: .chances_stay_the_same)
 
+        createInitialData()
         loadData()
-
-        if kids.count < 1 {
-            createInitialData()
-        }
     }
 
     private func loadData() {
-        // TODO
+        for group in kidsGroups {
+            if let loadedEvents = storage.loadHistoryEvents(forGroupId: group.id) {
+                group.setLoadedHistory(events: loadedEvents)
+            }
+        }
     }
 
     func kid(withId kidId: String) -> Kid? {
@@ -71,6 +74,16 @@ class Core {
         // reactivate when notification implemented. Otherwise: View and Core go unsynced!
         // self.kidsGroups = self.kidsGroups.sorted(by: groupsSorterByLastAccess)
     }
+    
+    func kidPicked(id: String) {
+        currentGroup.kidPicked(id: id)
+        storage.storeHistory(currentGroup.history, ofGroupId: currentGroup.id)
+    }
+
+    func resetCurrentGroup() {
+        currentGroup.reset()
+        storage.storeHistory(currentGroup.history, ofGroupId: currentGroup.id)
+    }
 
     /// Shortcut where name and picPath are the same
     private func addKid(name: String) -> Kid {
@@ -96,7 +109,33 @@ class Core {
     // initial data
 
     private func createInitialData() {
-        let sitCircleGroup = KidsGroup(name: "Sitzkreis", style: .slowly_recover_chance)
+        let hundredQuestionsGroup = KidsGroup(id: "hundredQuestions",
+                                              name: "100 Fragen",
+                                              style: .gone_until_everybody_had_its_turn)
+        for index in 1...100 {
+            hundredQuestionsGroup.appendKid(
+                self.addKid(id: "question_\(index)",
+                            name: "\(index)",
+                            picPath: nil).id)
+        }
+        self.kidsGroups.append(hundredQuestionsGroup)
+        // make the questions rainbow colored
+        let questionsHueDelta: CGFloat = 1.0 / CGFloat(hundredQuestionsGroup.kids.count)
+        var hue: CGFloat = 0
+        for (index, questionId) in hundredQuestionsGroup.kids.enumerated() {
+            self.kids[questionId]!.color = UIColor(
+                hue: hue,
+                saturation: 1,
+                brightness: (index%2 == 0) ? 1 : 0.8,
+                alpha: 1)
+            hue += questionsHueDelta
+        }
+        
+        // ---- sit circle group
+        
+        let sitCircleGroup = KidsGroup(id: "sit_circle",
+                                       name: "Sitzkreis",
+                                       style: .slowly_recover_chance)
         sitCircleGroup.appendKid(self.addKid(name: "Emily").id)
         sitCircleGroup.appendKid(self.addKid(name: "Erik").id)
         sitCircleGroup.appendKid(self.addKid(name: "Gregor").id)
@@ -122,14 +161,15 @@ class Core {
 
         // make the kids rainbow colored for the beginning
         let hueDelta: CGFloat = 1.0 / CGFloat(sitCircleGroup.kids.count)
-        var hue: CGFloat = 0
+        hue = 0
         for kidId in sitCircleGroup.kids {
             self.kids[kidId]!.color = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
             hue += hueDelta
         }
 
-
-        let yesOrNoGroup = KidsGroup(name: "Ja oder nein", style: .chances_stay_the_same)
+        // ---- yes or no
+        
+        let yesOrNoGroup = KidsGroup(id: "yes_no_group", name: "Ja oder nein", style: .chances_stay_the_same)
         let yes1 = addKid(id: "yes_green_1", name: "JA", picPath: nil)
         yes1.color = UIColor.init(red: 0, green: 0.6, blue: 0, alpha: 1)
         yesOrNoGroup.appendKid(yes1.id)

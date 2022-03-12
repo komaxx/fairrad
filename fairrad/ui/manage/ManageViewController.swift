@@ -13,6 +13,10 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismiss(animated: true)
     }
 
+    @IBAction func resetButtonTapped(_ sender: Any) {
+        Core.instance.resetCurrentGroup()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Core.instance.currentGroup.kids.count
     }

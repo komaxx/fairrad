@@ -31,7 +31,7 @@ class KidPickedView: UIView {
     }
 
     @IBAction func onAcceptTapped(_ sender: UIButton) {
-        Core.instance.currentGroup.kidPicked(id: shownKidId)
+        Core.instance.kidPicked(id: shownKidId)
 
         UIView.animate(withDuration: 0.1, animations: {
             self.alpha = 0

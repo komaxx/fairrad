@@ -34,15 +34,19 @@ class KidsGroup: Equatable {
     private(set) var lastTimeCurrent: Date
 
 
-    init(name: String, style: KidsGroupStyle) {
-        self.id = UUID().uuidString
-
+    init(id: String, name: String, style: KidsGroupStyle) {
+        self.id = id
         self.name = name
         self.style = style
 
         self.lastTimeCurrent = Date.distantPast
     }
 
+    func setLoadedHistory(events: [HistoryEvent]) {
+        history = events
+        recomputeWeights()
+    }
+    
     ///
     /// Numeric value in [0,kidsCount] where 0 means: Do not show at all.
     /// All other values are to be considered in relation to other weights
@@ -82,6 +86,12 @@ class KidsGroup: Equatable {
         self.notify()
     }
 
+    func reset() {
+        self.history.removeAll()
+        self.recomputeWeights()
+        self.notify()
+    }
+    
     private func recomputeWeights() {
         resetAllWeights()
 
@@ -114,7 +124,7 @@ class KidsGroup: Equatable {
             }
         } else if style == .slowly_recover_chance {
             for kid in kids {
-                kidWeights[kid] = weightForKid(withId: kid) + 1
+                kidWeights[kid] = weightForKid(withId: kid) + 2
             }
             kidWeights[event.chosenKid] = 1
         } // else: keep all weights the same

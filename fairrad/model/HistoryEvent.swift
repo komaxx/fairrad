@@ -16,4 +16,13 @@ class HistoryEvent {
         self.chosenKid = kid
         self.timeStamp = timeStamp
     }
+    
+    func toDictionary() -> [String:Any] {
+        return ["kidId": chosenKid, "timeStamp": timeStamp]
+    }
+    
+    class func from(dicitonary: [String:Any]) -> HistoryEvent {
+        return HistoryEvent(withChosenKid: dicitonary["kidId"] as! String,
+                            timeStamp: dicitonary["timeStamp"] as! Date)
+    }
 }

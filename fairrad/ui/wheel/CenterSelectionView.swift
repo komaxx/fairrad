@@ -8,6 +8,10 @@ import UIKit
 class CenterSelectionView: UIView {
     @IBOutlet weak var kidFaceView: UIImageView!
     @IBOutlet weak var kidNameView: UILabel!
+    
+    private var currentKidId: String?
+    
+    var delegate: WheelViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,12 +23,19 @@ class CenterSelectionView: UIView {
         self.layer.borderWidth = 3
     }
 
+    @IBAction func didTapCenterButton(_ sender: Any) {
+        if let kidId = self.currentKidId {
+            delegate?.kidPicked(withId: kidId)
+        }
+    }
+    
     override func layoutSubviews() {
         self.layer.cornerRadius = self.bounds.width / 2
         super.layoutSubviews()
     }
 
     func update(withKidId kidId: String?) {
+        currentKidId = kidId
         guard let kidID = kidId,
               let kid = Core.instance.kid(withId: kidID) else {
             self.backgroundColor = UIColor.clear

@@ -121,7 +121,7 @@ class SectorView: UIView {
         self.highlightLayer.path = path.cgPath
 
         // only show the label when the slice is not too narrow
-        kidNameLabel.isHidden = smallMode || CGFloat(halfHeight) < kidNameLabel.bounds.size.height
+        kidNameLabel.isHidden = smallMode || CGFloat(halfHeight * 0.8) < kidNameLabel.bounds.size.height
 
         // TODO: decide whether clipping is necessary or not (only for the last drawn
         // TODO: sector and then only when the content does not fit in the bounds)

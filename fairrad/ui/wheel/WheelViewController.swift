@@ -22,7 +22,7 @@ class WheelViewController: UIViewController, WheelViewDelegate {
 
     // Grab the path, make sure to add it to your project!
 
-    var tickPlayers = [AVAudioPlayer]()
+    //var tickPlayers = [AVAudioPlayer]()
     var nextPlayer = 0
 
 
@@ -31,18 +31,19 @@ class WheelViewController: UIViewController, WheelViewDelegate {
 
         do {
             for _ in 0...5 {
-                let tickSoundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "tick2", ofType: "wav")!)
-                let nuPlayer = try AVAudioPlayer(contentsOf: tickSoundURL)
-                //nuPlayer.numberOfLoops = -1
-                nuPlayer.prepareToPlay()
-                nuPlayer.volume = 0.1
-                tickPlayers.append(nuPlayer)
+//                let tickSoundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "tick2", ofType: "wav")!)
+//                let nuPlayer = try AVAudioPlayer(contentsOf: tickSoundURL)
+//                //nuPlayer.numberOfLoops = -1
+//                nuPlayer.prepareToPlay()
+//                nuPlayer.volume = 0.1
+//                tickPlayers.append(nuPlayer)
             }
         } catch {
             print("Shoot :<")
             print(error)
         }
         self.wheelView.delegate = self
+        self.centerView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +88,6 @@ class WheelViewController: UIViewController, WheelViewDelegate {
     // wheel view delegate
 
     func higlightedKidChanged(nuKidId: String?, angleSpeed: Double) {
-        // print("tick: \(nuKidId)")
         centerView.update(withKidId: nuKidId)
 
         self.topIndicator.transform = CGAffineTransform(rotationAngle: (((angleSpeed > 0) ? -1 : 1) * (CGFloat.pi / 20)))
@@ -108,14 +108,14 @@ class WheelViewController: UIViewController, WheelViewDelegate {
     }
 
     private func playTick() {
-        DispatchQueue.global().async {
-            for player in self.tickPlayers {
-                if !player.isPlaying {
-                    player.play()
-                    break
-                }
-            }
-        }
+//        DispatchQueue.global().async {
+//            for player in self.tickPlayers {
+//                if !player.isPlaying {
+//                    player.play()
+//                    break
+//                }
+//            }
+//        }
     }
 }
 
