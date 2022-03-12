@@ -19,6 +19,9 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
 
     /// The angular speed will be multiplied with this per frame
     let SLOW_DOWN_FACTOR = 0.985
+    
+    /// You need to spin the wheel at least this far to make the spin count.
+    let MIN_SPIN_RADIANS_TO_COUNT = CGFloat.pi
 
     /// when the angular speed falls under this, the movement is considered 'stopped'
     let STOP_SPEED = 0.025
@@ -34,6 +37,10 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
 
     var highlightedSectorView: SectorView?
     var currentRadians: CGFloat = 0
+    
+    /// How far the wheel spun during an animation. Used to only trigger the "picking" if it was
+    /// spun far enough (MIN_SPIN_RADIANS_TO_COUNT)
+    var overallSpinningRadians: CGFloat = 0
 
     /// degree radians per second
     var currentAngleSpeed: Double = 0
@@ -92,7 +99,7 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
                 currentAngleSpeed = self.spinHistory.getAngleSpeed()
                 startAnimation()
             } else {
-                stopAndPick()
+                stopAnimation()
             }
         } else {
             // the view is turned with the touches, so touchdown-radians is *always*
@@ -172,12 +179,15 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
         if let displayLink = self.displayLink {
             displayLink.add(to: .current, forMode: RunLoop.Mode.default)
         }
+        
+        overallSpinningRadians = 0
     }
 
     @objc func animationStep(displayLink: CADisplayLink) {
         let stepRadians = currentAngleSpeed * displayLink.duration
         currentAngleSpeed *= SLOW_DOWN_FACTOR
 
+        overallSpinningRadians += stepRadians
         self.updateCurrentRadians(currentRadians + CGFloat(stepRadians))
 
         self.transform = CGAffineTransform(rotationAngle: currentRadians)
@@ -196,6 +206,11 @@ class WheelView: UIView, UIGestureRecognizerDelegate {
     private func stopAndPick() {
         stopAnimation()
 
+        guard abs(overallSpinningRadians) > MIN_SPIN_RADIANS_TO_COUNT else {
+            print("Animation ended but not picking: Not spun far enough")
+            return
+        }
+        
         if self.delegate != nil {
             if let highlightView = self.highlightedSectorView {
                 self.delegate!.kidPicked(withId: highlightView.kidID)
@@ -329,7 +344,7 @@ class SpinHistory {
     /// than this
     let MIN_FLING_SPEED = 0.3
 
-    /// How much history we preserver
+    /// How much history we preserve
     let HISTORY_TIME: TimeInterval = 1
 
     /// Aggregate over this time to see if this might be slow spin (dialing to a specific position)

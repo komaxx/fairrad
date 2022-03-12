@@ -94,8 +94,10 @@ class WheelViewController: UIViewController, WheelViewDelegate {
 
     private func playTick() {
         tickGenerator.selectionChanged()
-        AudioServicesPlaySystemSoundWithCompletion(1157, nil)
         
+        // 1157: Magic number from the internet :/
+        // Seems to work reliably, though
+        AudioServicesPlaySystemSoundWithCompletion(1157, nil)
     }
 }
 
