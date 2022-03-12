@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+import AudioToolbox.AudioServices
+
 
 class WheelViewController: UIViewController, WheelViewDelegate {
     @IBOutlet weak var wheelView: WheelView!
@@ -19,35 +21,18 @@ class WheelViewController: UIViewController, WheelViewDelegate {
 
     @IBOutlet weak var kidPickedView: KidPickedView!
 
-
-    // Grab the path, make sure to add it to your project!
-
-    //var tickPlayers = [AVAudioPlayer]()
-    var nextPlayer = 0
-
-
+    let tickGenerator = UISelectionFeedbackGenerator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-            for _ in 0...5 {
-//                let tickSoundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "tick2", ofType: "wav")!)
-//                let nuPlayer = try AVAudioPlayer(contentsOf: tickSoundURL)
-//                //nuPlayer.numberOfLoops = -1
-//                nuPlayer.prepareToPlay()
-//                nuPlayer.volume = 0.1
-//                tickPlayers.append(nuPlayer)
-            }
-        } catch {
-            print("Shoot :<")
-            print(error)
-        }
         self.wheelView.delegate = self
         self.centerView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tickGenerator.prepare()
     }
 
 
@@ -108,14 +93,9 @@ class WheelViewController: UIViewController, WheelViewDelegate {
     }
 
     private func playTick() {
-//        DispatchQueue.global().async {
-//            for player in self.tickPlayers {
-//                if !player.isPlaying {
-//                    player.play()
-//                    break
-//                }
-//            }
-//        }
+        tickGenerator.selectionChanged()
+        AudioServicesPlaySystemSoundWithCompletion(1157, nil)
+        
     }
 }
 

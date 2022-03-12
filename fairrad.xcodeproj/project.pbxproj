@@ -15,10 +15,8 @@
 		B64594321644D8D2C1123115 /* CenterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459E762D6D7307978C722E /* CenterSelectionView.swift */; };
 		B64596C94471F3F94052B9FE /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459A808289C3C3D4046F9A /* ManageViewController.swift */; };
 		B64599085BAFFA22AC6A12F9 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64594CCE55A297377618013 /* Core.swift */; };
-		B6459998D7743DE77A7BAAFC /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6459121CC95BF607809EA95 /* tick.wav */; };
 		B64599F24A5F51A3CAF37797 /* KidsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459AC6DF4A0ED9B81FBFB6 /* KidsGroup.swift */; };
 		B6459A105D0F70EF9CE841D6 /* KidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459C30A728AC491936CA05 /* KidCell.swift */; };
-		B6459B006D759DA0403657F6 /* tick2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6459045EEC8AB25EF197DB6 /* tick2.wav */; };
 		B6459C48DA30DB33EBC114B6 /* SelectWheelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */; };
 		B6459CB6AEEAEA95DC400188 /* HistoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459739EC80E90D2D5BD284 /* HistoryEvent.swift */; };
 		B6459CDEED041EA68C44497D /* KidPickedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64595DC76C27B7144E9C672 /* KidPickedView.swift */; };
@@ -32,8 +30,6 @@
 
 /* Begin PBXFileReference section */
 		B6459040FEAD193FC29B9CEF /* SelectWheelCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWheelCellView.swift; sourceTree = "<group>"; };
-		B6459045EEC8AB25EF197DB6 /* tick2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick2.wav; sourceTree = "<group>"; };
-		B6459121CC95BF607809EA95 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		B6459151A25D391378CC835E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fairrad/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		B64594CCE55A297377618013 /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		B645955FE3610A51EA4DB336 /* WheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
@@ -146,8 +142,6 @@
 				B64594878BD006B33F3A89FA /* core */,
 				B6459013B4B1ECB467F9ECEA /* model */,
 				B6459D2A6854493277793918 /* Util.swift */,
-				B6459121CC95BF607809EA95 /* tick.wav */,
-				B6459045EEC8AB25EF197DB6 /* tick2.wav */,
 			);
 			path = fairrad;
 			sourceTree = "<group>";
@@ -215,8 +209,6 @@
 				CE1A8E0F1E41425900AD8E9C /* LaunchScreen.storyboard in Resources */,
 				CE1A8E0C1E41425900AD8E9C /* Assets.xcassets in Resources */,
 				B645927652F367D17CFEE2FC /* Main.storyboard in Resources */,
-				B6459998D7743DE77A7BAAFC /* tick.wav in Resources */,
-				B6459B006D759DA0403657F6 /* tick2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
