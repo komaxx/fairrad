@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import AudioToolbox.AudioServices
 
 ///
 /// Shown when the wheel stopped spinning and a kid was picked.
@@ -31,6 +32,8 @@ class KidPickedView: UIView {
     }
 
     @IBAction func onAcceptTapped(_ sender: UIButton) {
+        AudioServicesPlaySystemSoundWithCompletion(1025, nil)
+
         Core.instance.kidPicked(id: shownKidId)
 
         UIView.animate(withDuration: 0.1, animations: {
@@ -43,6 +46,8 @@ class KidPickedView: UIView {
     }
 
     @IBAction func onDeclineTapped(_ sender: UIButton) {
+        AudioServicesPlaySystemSoundWithCompletion(1104, nil)
+
         UIView.animate(withDuration: 0.1, animations: {
             self.alpha = 0
             self.kidFaceView.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)

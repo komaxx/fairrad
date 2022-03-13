@@ -35,7 +35,6 @@ class WheelViewController: UIViewController, WheelViewDelegate {
         tickGenerator.prepare()
     }
 
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
